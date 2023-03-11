@@ -9,10 +9,10 @@ test_font = pygame.font.Font('font/Pixeltype.ttf', 50)
 
 sky_surface = pygame.image.load('graphics/Sky.png').convert()
 ground_surface = pygame.image.load('graphics/ground.png').convert()
-text_surface = test_font.render('My game', False, 'Black')
+text_surface = test_font.render('te amo fernandinha', False, 'Black')
 
-snail_surface = pygame.image.load('graphics/snail/snail1.png').convert_alpha()
-snail_rectangle = snail_surface.get_rect(bottomright = (800, 300))
+frog_surface = pygame.image.load('graphics/frog/frog1.png').convert_alpha()
+frog_rectangle = frog_surface.get_rect(bottomright = (800, 300))
 
 player_surface = pygame.image.load('graphics/player/player_walk_1.png').convert_alpha()
 player_rectangle = player_surface.get_rect(midbottom = (50, 300)) 
@@ -25,11 +25,11 @@ while True:
 
     screen.blit(sky_surface, (0,0))
     screen.blit(ground_surface, (0, 300))
-    screen.blit(text_surface, (340, 50))
+    screen.blit(text_surface, (250, 50))
 
-    snail_rectangle.x -= 3
-    if snail_rectangle.right <= 0: snail_rectangle.left = 800
-    screen.blit(snail_surface, snail_rectangle)
+    frog_rectangle.x -= 3
+    if frog_rectangle.right <= 0: frog_rectangle.left = 800
+    screen.blit(frog_surface, frog_rectangle)
     screen.blit(player_surface, player_rectangle)
 
     pygame.display.update() 
