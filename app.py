@@ -5,11 +5,13 @@ pygame.init()
 screen = pygame.display.set_mode((800, 400)) 
 pygame.display.set_caption('Runner')
 clock = pygame.time.Clock()
-test_font = pygame.font.Font('font/Pixeltype.ttf', 50)
+score_font = pygame.font.Font('font/Pixeltype.ttf', 50)
 
 sky_surface = pygame.image.load('graphics/Sky.png').convert()
 ground_surface = pygame.image.load('graphics/ground.png').convert()
-text_surface = test_font.render('te amo fernandinha', False, 'Black')
+
+score_surface = score_font.render('my game', False, (64, 64, 64))
+score_rectangle = score_surface.get_rect(center = (400, 50))
 
 frog_surface = pygame.image.load('graphics/frog/frog1.png').convert_alpha()
 frog_rectangle = frog_surface.get_rect(bottomright = (800, 300))
@@ -28,7 +30,9 @@ while True:
 
     screen.blit(sky_surface, (0,0))
     screen.blit(ground_surface, (0, 300))
-    screen.blit(text_surface, (250, 50))
+    pygame.draw.rect(screen, (201, 242, 238), score_rectangle)
+    pygame.draw.rect(screen, (201, 242, 238), score_rectangle, 20)
+    screen.blit(score_surface, (score_rectangle))
 
     frog_rectangle.x -= 3
     if frog_rectangle.right <= 0: frog_rectangle.left = 800
