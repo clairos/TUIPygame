@@ -3,7 +3,7 @@ from sys import exit
 
 pygame.init() 
 screen = pygame.display.set_mode((800, 400)) 
-pygame.display.set_caption('Runner')
+pygame.display.set_caption('joguinho da clara')
 clock = pygame.time.Clock()
 score_font = pygame.font.Font('font/Pixeltype.ttf', 50)
 
@@ -24,6 +24,9 @@ while True:
         if event.type == pygame.QUIT:
             pygame.quit()
             exit()
+        
+        if event.type == pygame.KEYDOWN:
+            ...
             
     screen.blit(sky_surface, (0,0))
     screen.blit(ground_surface, (0, 300))
@@ -35,6 +38,10 @@ while True:
     if frog_rectangle.right <= 0: frog_rectangle.left = 800
     screen.blit(frog_surface, frog_rectangle)
     screen.blit(player_surface, player_rectangle)
+
+    # keys = pygame.key.get_pressed()
+    # if keys[pygame.K_SPACE]:
+    #     ...
 
     pygame.display.update() 
     clock.tick(60)
